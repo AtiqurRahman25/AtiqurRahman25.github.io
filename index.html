@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Md. Atiqur Rahman Sifat</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316', // Primary Light Orange Accent
+                            600: '#ea580c',
+                            700: '#c2410c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Gradient Mesh Ambient Background */
+        .bg-mesh {
+            background-color: #fafafa;
+            background-image:
+                radial-gradient(circle at 10% 10%, rgba(254, 215, 170, 0.35) 0%, transparent 40%),
+                radial-gradient(circle at 90% 20%, rgba(253, 186, 116, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(255, 237, 213, 0.3) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Glassmorphism Navbar with #FF9D8C Base */
+        .glass-nav {
+            background: rgba(255, 157, 140, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 12px 32px -8px rgba(234, 88, 12, 0.15);
+        }
+
+        /* Illustrative Card Effects */
+        .card-illustrative {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(241, 245, 249, 0.9);
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-illustrative:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px -6px rgba(249, 115, 22, 0.12);
+            border-color: rgba(253, 186, 116, 0.6);
+        }
+
+        /* Page View Transitions */
+        .page-section {
+            display: none;
+            animation: slideUpFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-mesh text-slate-800 font-sans min-h-screen flex flex-col selection:bg-brand-100 selection:text-brand-700">
+
+    <!-- ==================== FLOATING GLASS NAVBAR ==================== -->
+    <header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+        <nav
+            class="glass-nav rounded-full px-4 py-2.5 flex items-center justify-between gap-2 max-w-4xl w-full text-xs font-mono">
+
+            <!-- Brand Logo / Name -->
+            <!-- <a href="#home" onclick="navigateTo('home')" class="font-bold text-slate-900 tracking-tight flex items-center gap-2 pl-2 group">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></span>
+        <span class="text-sm font-sans font-bold tracking-tight text-slate-900 group-hover:text-brand-600 transition">Academic.Portfolio</span>
+      </a> -->
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-1 text-slate-800 font-medium">
+                <button onclick="navigateTo('home')" id="nav-home"
+                    class="nav-btn px-3 py-1.5 rounded-full transition hover:text-slate-950 hover:bg-white/60 flex items-center gap-1.5">
+                    <span class="dot text-brand-600 font-bold hidden">•</span> &lt;/Home&gt;
+                </button>
+                <button onclick="navigateTo('publications')" id="nav-publications"
+                    class="nav-btn px-3 py-1.5 rounded-full transition hover:text-slate-950 hover:bg-white/60 flex items-center gap-1.5">
+                    <span class="dot text-brand-600 font-bold hidden">•</span> &lt;/Publications&gt;
+                </button>
+                <button onclick="navigateTo('journals')" id="nav-journals"
+                    class="nav-btn px-3 py-1.5 rounded-full transition hover:text-slate-950 hover:bg-white/60 flex items-center gap-1.5">
+                    <span class="dot text-brand-600 font-bold hidden">•</span> &lt;/Journals&gt;
+                </button>
+                <button onclick="navigateTo('projects')" id="nav-projects"
+                    class="nav-btn px-3 py-1.5 rounded-full transition hover:text-slate-950 hover:bg-white/60 flex items-center gap-1.5">
+                    <span class="dot text-brand-600 font-bold hidden">•</span> &lt;/Projects&gt;
+                </button>
+                <button onclick="navigateTo('certifications')" id="nav-certifications"
+                    class="nav-btn px-3 py-1.5 rounded-full transition hover:text-slate-950 hover:bg-white/60 flex items-center gap-1.5">
+                    <span class="dot text-brand-600 font-bold hidden">•</span> &lt;/Certifications&gt;
+                </button>
+                <button onclick="navigateTo('cv')" id="nav-cv"
+                    class="nav-btn px-3 py-1.5 rounded-full transition hover:text-slate-950 hover:bg-white/60 flex items-center gap-1.5">
+                    <span class="dot text-brand-600 font-bold hidden">•</span> &lt;/CV&gt;
+                </button>
+                <button onclick="navigateTo('contact')" id="nav-contact"
+                    class="nav-btn px-3 py-1.5 rounded-full transition hover:text-slate-950 hover:bg-white/60 flex items-center gap-1.5">
+                    <span class="dot text-brand-600 font-bold hidden">•</span> &lt;/Contact&gt;
+                </button>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button onclick="toggleMobileMenu()"
+                class="md:hidden p-2 text-slate-800 hover:text-slate-950 focus:outline-none">
+                <i class="fa-solid fa-bars text-base"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-slate-900/30 backdrop-blur-md hidden flex-col pt-24 px-6 gap-3 md:hidden font-mono text-sm text-slate-800">
+        <div class="glass-nav rounded-2xl p-4 flex flex-col gap-2">
+            <button onclick="navigateTo('home'); toggleMobileMenu()"
+                class="text-left px-4 py-2.5 rounded-xl hover:bg-white/60 font-medium">&lt;/Home&gt;</button>
+            <button onclick="navigateTo('publications'); toggleMobileMenu()"
+                class="text-left px-4 py-2.5 rounded-xl hover:bg-white/60 font-medium">&lt;/Publications&gt;</button>
+            <button onclick="navigateTo('journals'); toggleMobileMenu()"
+                class="text-left px-4 py-2.5 rounded-xl hover:bg-white/60 font-medium">&lt;/Journals&gt;</button>
+            <button onclick="navigateTo('projects'); toggleMobileMenu()"
+                class="text-left px-4 py-2.5 rounded-xl hover:bg-white/60 font-medium">&lt;/Projects&gt;</button>
+            <button onclick="navigateTo('certifications'); toggleMobileMenu()"
+                class="text-left px-4 py-2.5 rounded-xl hover:bg-white/60 font-medium">&lt;/Certifications&gt;</button>
+            <button onclick="navigateTo('cv'); toggleMobileMenu()"
+                class="text-left px-4 py-2.5 rounded-xl hover:bg-white/60 font-medium">&lt;/CV&gt;</button>
+            <button onclick="navigateTo('contact'); toggleMobileMenu()"
+                class="text-left px-4 py-2.5 rounded-xl hover:bg-white/60 font-medium">&lt;/Contact&gt;</button>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+    <main class="flex-grow pt-28 pb-16 px-4 max-w-4xl mx-auto w-full">
+
+        <!-- PAGE 1: HOME -->
+        <section id="page-home" class="page-section active space-y-8">
+
+            <!-- Hero Card -->
+            <div
+                class="card-illustrative rounded-3xl p-8 relative overflow-hidden flex flex-col md:flex-row gap-8 items-center">
+
+                <!-- Illustrative Avatar Circle -->
+                <div class="relative shrink-0">
+                    <div
+                        class="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-tr from-brand-200 via-brand-100 to-white p-1.5 shadow-md">
+                        <div
+                            class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden border border-brand-200 relative">
+                            <!-- <i class="fa-solid fa-user-astronaut text-6xl text-brand-500"></i> -->
+                            <img src="crop-og.jpeg" alt="personal-images">
+
+                        </div>
+                    </div>
+                    <span
+                        class="absolute bottom-1 right-1 bg-white text-emerald-600 text-[10px] font-bold px-2.5 py-1 rounded-full border border-slate-200 shadow-sm flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Available
+                    </span>
+                </div>
+
+                <div class="space-y-4 text-center md:text-left flex-1">
+                    <div>
+                        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Md. Atiqur Rahman
+                            Sifat</h1>
+                        <p class="text-brand-600 font-semibold text-sm mt-1">M.Sc. Candidate | Computer Science &
+                            Artificial Intelligence</p>
+                    </div>
+
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Specializing in multimodal machine learning, vision transformers, and self-supervised biomedical
+                        image representations. Researching high-impact doctoral opportunities in Europe and North
+                        America.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2.5 justify-center md:justify-start pt-2">
+                        <a href="#cv" onclick="navigateTo('cv')"
+                            class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow-md shadow-brand-500/20 transition flex items-center gap-2">
+                            <i class="fa-solid fa-file-arrow-down"></i> Academic CV
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=wC_XzlkAAAAJ&hl=en" target="_blank"
+                            class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs transition flex items-center gap-2 border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-graduation-cap text-brand-500"></i> Scholar
+                        </a>
+                        <a href="https://github.com/AtiqurRahman25" target="_blank"
+                            class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs transition flex items-center gap-2 border border-slate-200 shadow-sm">
+                            <i class="fa-brands fa-github text-slate-800"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/arsifat25/" target="_blank"
+                            class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs transition flex items-center gap-2 border border-slate-200 shadow-sm">
+                            <i class="fa-brands fa-linkedin text-blue-600"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Overview Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                <div class="card-illustrative rounded-2xl p-5 space-y-2">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 font-bold">
+                        <i class="fa-solid fa-brain text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-900">Medical AI</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Developing self-supervised representations for
+                        diagnostic pathology with limited annotated datasets.</p>
+                </div>
+
+                <div class="card-illustrative rounded-2xl p-5 space-y-2">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 font-bold">
+                        <i class="fa-solid fa-diagram-project text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-900">Graph Neural Nets</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Modeling spatial and structural relational
+                        topologies in ophthalmic and retinal imaging scan data.</p>
+                </div>
+
+                <div class="card-illustrative rounded-2xl p-5 space-y-2">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 font-bold">
+                        <i class="fa-solid fa-eye text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-900">Vision Transformers</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">Investigating multimodal cross-attention
+                        mechanisms for interpretable computer vision pipelines.</p>
+                </div>
+
+            </div>
+
+            <!-- Recent Timeline Updates -->
+            <div class="card-illustrative rounded-3xl p-6 space-y-4">
+                <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-brand-500"></i> Recent News & Milestones
+                </h2>
+                <div class="space-y-3 font-sans">
+
+                    <div class="flex gap-4 items-start p-3 rounded-xl bg-white/60 border border-slate-100">
+                        <span
+                            class="px-2.5 py-1 rounded-lg bg-brand-50 text-brand-700 font-mono text-[11px] font-bold shrink-0">Feb
+                            2026</span>
+                        <p class="text-xs text-slate-700 leading-relaxed"><strong class="text-slate-900">Paper
+                                Submitted:</strong> Submitted lead-author research paper on multimodal vision
+                            representations to CVPR 2026.</p>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-3 rounded-xl bg-white/60 border border-slate-100">
+                        <span
+                            class="px-2.5 py-1 rounded-lg bg-brand-50 text-brand-700 font-mono text-[11px] font-bold shrink-0">Nov
+                            2025</span>
+                        <p class="text-xs text-slate-700 leading-relaxed"><strong class="text-slate-900">Research
+                                Grant:</strong> Secured competitive university research assistantship grant for medical
+                            image benchmarking.</p>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-3 rounded-xl bg-white/60 border border-slate-100">
+                        <span
+                            class="px-2.5 py-1 rounded-lg bg-brand-50 text-brand-700 font-mono text-[11px] font-bold shrink-0">Aug
+                            2025</span>
+                        <p class="text-xs text-slate-700 leading-relaxed"><strong class="text-slate-900">B.Sc.
+                                Graduation:</strong> Completed Bachelor of Science in CSE with First Class Honors (CGPA:
+                            3.92 / 4.00).</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: PUBLICATIONS -->
+        <section id="page-publications" class="page-section space-y-6">
+            <div class="flex justify-between items-center border-b border-slate-200/80 pb-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-slate-900">Conference Publications & Preprints</h1>
+                    <p class="text-slate-500 text-xs mt-1">Peer-reviewed proceedings and arXiv papers.</p>
+                </div>
+            </div>
+
+            <!-- Publication Card 1 -->
+            <div class="card-illustrative rounded-2xl p-6 space-y-4">
+                <div class="flex justify-between items-start gap-4">
+                    <h2 class="text-base font-bold text-slate-900 leading-snug">
+                        Self-Supervised Contrastive Representation Learning for Sparse Medical Imaging Datasets
+                    </h2>
+                    <span
+                        class="px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-200 text-xs font-mono font-bold shrink-0">CVPR
+                        2026</span>
+                </div>
+
+                <p class="text-xs text-slate-600">
+                    <strong class="text-slate-900">Your Name</strong>, Jane Doe, Alan Turing, John Smith
+                </p>
+                <p class="text-xs text-slate-500 italic">IEEE/CVF Conference on Computer Vision and Pattern Recognition
+                </p>
+
+                <div class="flex flex-wrap gap-2 pt-1">
+                    <a href="#"
+                        class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 transition shadow-sm flex items-center gap-1.5">
+                        <i class="fa-regular fa-file-pdf text-red-500"></i> PDF
+                    </a>
+                    <button onclick="alert('BibTeX copied to clipboard!')"
+                        class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 transition shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-quote-right text-brand-500"></i> BibTeX
+                    </button>
+                    <a href="#"
+                        class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 transition shadow-sm flex items-center gap-1.5">
+                        <i class="fa-brands fa-github text-slate-800"></i> Code Repo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Publication Card 2 -->
+            <div class="card-illustrative rounded-2xl p-6 space-y-4">
+                <div class="flex justify-between items-start gap-4">
+                    <h2 class="text-base font-bold text-slate-900 leading-snug">
+                        Multi-Graph Attention Networks for Predicting Disease Progression in Retinal Scans
+                    </h2>
+                    <span
+                        class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 text-xs font-mono font-bold shrink-0">arXiv
+                        2025</span>
+                </div>
+
+                <p class="text-xs text-slate-600">
+                    John Smith, <strong class="text-slate-900">Your Name</strong>, Alice Johnson
+                </p>
+                <p class="text-xs text-slate-500 italic">arXiv Preprint Server (Under Review)</p>
+
+                <div class="flex flex-wrap gap-2 pt-1">
+                    <a href="#"
+                        class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 transition shadow-sm flex items-center gap-1.5">
+                        <i class="fa-regular fa-file-pdf text-red-500"></i> PDF
+                    </a>
+                    <a href="#"
+                        class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 transition shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-link text-slate-500"></i> DOI Link
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: JOURNALS -->
+        <section id="page-journals" class="page-section space-y-6">
+            <div class="flex justify-between items-center border-b border-slate-200/80 pb-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-slate-900">Journal Articles</h1>
+                    <p class="text-slate-500 text-xs mt-1">Peer-reviewed journal publications and articles.</p>
+                </div>
+            </div>
+
+            <div class="card-illustrative rounded-2xl p-6 space-y-4">
+                <div class="flex justify-between items-start gap-4">
+                    <h2 class="text-base font-bold text-slate-900 leading-snug">
+                        Interpretable Deep Architectures for Automated Histopathology Classification
+                    </h2>
+                    <span
+                        class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-mono font-bold shrink-0">IEEE
+                        TMI 2025</span>
+                </div>
+
+                <p class="text-xs text-slate-600">
+                    <strong class="text-slate-900">Your Name</strong>, Robert Miller, Sarah Davis
+                </p>
+                <p class="text-xs text-slate-500 italic">IEEE Transactions on Medical Imaging (Volume 44, Issue 2)</p>
+
+                <div
+                    class="flex items-center gap-3 text-xs text-slate-500 font-mono bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+                    <span><i class="fa-solid fa-chart-line text-emerald-500"></i> Impact Factor: 10.6</span>
+                    <span>•</span>
+                    <span><i class="fa-solid fa-database text-brand-500"></i> Scopus & PubMed Indexed</span>
+                </div>
+
+                <div class="flex flex-wrap gap-2 pt-1">
+                    <a href="#"
+                        class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 transition shadow-sm flex items-center gap-1.5">
+                        <i class="fa-regular fa-file-pdf text-red-500"></i> IEEE Full Text
+                    </a>
+                    <a href="#"
+                        class="px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 transition shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-link text-slate-500"></i> DOI: 10.1109/TMI.2025.10293
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: PROJECTS -->
+        <section id="page-projects" class="page-section space-y-6">
+            <div class="flex justify-between items-center border-b border-slate-200/80 pb-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-slate-900">Research & Engineering Projects</h1>
+                    <p class="text-slate-500 text-xs mt-1">Open-source implementations and lab software.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <!-- Project Card 1 -->
+                <div class="card-illustrative rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 font-bold">
+                                <i class="fa-solid fa-cubes text-lg"></i>
+                            </span>
+                            <a href="#" class="text-slate-400 hover:text-slate-800 transition"><i
+                                    class="fa-brands fa-github text-xl"></i></a>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">MedVision-Bench</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Open-source benchmarking suite for evaluating self-supervised vision models on low-sample
+                            medical imaging datasets.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
+                            <span
+                                class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">PyTorch</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">CUDA</span>
+                            <span
+                                class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">TorchVision</span>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-700">
+                            View Repository <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="card-illustrative rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 font-bold">
+                                <i class="fa-solid fa-network-wired text-lg"></i>
+                            </span>
+                            <a href="#" class="text-slate-400 hover:text-slate-800 transition"><i
+                                    class="fa-brands fa-github text-xl"></i></a>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900">Graph-Ophthalmo</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Spatial graph convolution networks for modeling topological vascular structures in fundus
+                            photography.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">PyG</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">Python</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">OpenCV</span>
+                        </div>
+                        <a href="#"
+                            class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 hover:text-brand-700">
+                            View Repository <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PAGE 5: CERTIFICATIONS -->
+        <section id="page-certifications" class="page-section space-y-6">
+            <div class="flex justify-between items-center border-b border-slate-200/80 pb-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-slate-900">Certifications & Test Scores</h1>
+                    <p class="text-slate-500 text-xs mt-1">Academic honors, certifications, and standardized test
+                        metrics.</p>
+                </div>
+            </div>
+
+            <!-- Test Score Visual Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="card-illustrative rounded-2xl p-4 text-center space-y-1">
+                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">GRE
+                        General</span>
+                    <span class="text-xl font-extrabold text-slate-900 block">328 / 340</span>
+                    <span class="text-[10px] text-brand-600 font-semibold block">Q: 168 | V: 160</span>
+                </div>
+
+                <div class="card-illustrative rounded-2xl p-4 text-center space-y-1">
+                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">IELTS
+                        Academic</span>
+                    <span class="text-xl font-extrabold text-slate-900 block">7.0 / 9.0</span>
+                    <span class="text-[10px] text-brand-600 font-semibold block">C1 Proficient (L:8, R:6.5, W:6.5, S:7)</span>
+                </div>
+
+                <div class="card-illustrative rounded-2xl p-4 text-center space-y-1">
+                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">TOEFL
+                        iBT</span>
+                    <span class="text-xl font-extrabold text-slate-900 block">108 / 120</span>
+                    <span class="text-[10px] text-brand-600 font-semibold block">R:29 L:28 S:25 W:26</span>
+                </div>
+
+                <div class="card-illustrative rounded-2xl p-4 text-center space-y-1">
+                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">B.Sc.
+                        CGPA</span>
+                    <span class="text-xl font-extrabold text-slate-900 block">3.56 / 4.00</span>
+                    <span class="text-[10px] text-brand-600 font-semibold block">First Class Honors</span>
+                </div>
+            </div>
+
+            <!-- Honors List -->
+            <div class="space-y-3 pt-2">
+                <div class="card-illustrative rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 shrink-0">
+                            <i class="fa-solid fa-trophy text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold text-slate-900">Dean's Honor List for Academic Excellence</h3>
+                            <p class="text-[11px] text-slate-500">Faculty of Engineering • Awarded 2023, 2024, 2025</p>
+                        </div>
+                    </div>
+                    <span
+                        class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 font-mono text-[10px] font-bold">Honor</span>
+                </div>
+
+                <div class="card-illustrative rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 shrink-0">
+                            <i class="fa-solid fa-certificate text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold text-slate-900">Data Analytics Specialization</h3>
+                            <p class="text-[11px] text-slate-500">Bohubrihi Verified Certificate • Instructor: Andalib Hasan & Araf Hasnat
+                            </p>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1bOYaf4UCnaR9ev4Xq9HBx17h_ex78Yuz/view?usp=drive_link" target="_blank" rel="noopener noreferrer"
+                        class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 transition-colors text-slate-600 font-mono text-[10px] font-bold inline-flex items-center gap-1">
+                        Verify
+                    </a>
+                </div>
+
+                <!-- PAGE 6: CV -->
+                <section id="page-cv" class="page-section space-y-6">
+                    <div class="flex justify-between items-center border-b border-slate-200/80 pb-4">
+                        <div>
+                            <h1 class="text-2xl font-bold text-slate-900">Curriculum Vitae</h1>
+                            <p class="text-slate-500 text-xs mt-1">Structured academic background and experience.</p>
+                        </div>
+                        <a href="#"
+                            class="px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow-md shadow-brand-500/20 transition flex items-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download CV
+                        </a>
+                    </div>
+
+                    <div class="card-illustrative rounded-3xl p-8 space-y-8">
+                        <!-- Education Section -->
+                        <div>
+                            <h2 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-graduation-cap text-brand-500"></i> Education History
+                            </h2>
+                            <div class="border-l-2 border-brand-200 pl-4 space-y-4">
+                                <div>
+                                    <span class="text-xs font-mono text-brand-600 font-bold">2022 — 2026</span>
+                                    <h3 class="text-sm font-bold text-slate-900">B.Sc. in Computer Science & Engineering
+                                    </h3>
+                                    <p class="text-xs text-slate-600">University of Information Technology & Sciences •
+                                        CGPA: 3.56 / 4.00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Teaching Section -->
+                        <div>
+                            <h2 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-chalkboard-user text-brand-500"></i> Working Experience
+                            </h2>
+                            <div class="border-l-2 border-brand-200 pl-4 space-y-4">
+                                <div>
+                                    <span class="text-xs font-mono text-brand-600 font-bold">Fall 2024 — Spring
+                                        2025</span>
+                                    <h3 class="text-sm font-bold text-slate-900">Undergraduate Teaching Assistant (TA)
+                                    </h3>
+                                    <p class="text-xs text-slate-600">Department of Computer Science • Course: Data
+                                        Structures & Algorithms</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PAGE 7: CONTACT -->
+                <section id="page-contact" class="page-section space-y-6">
+                    <div class="flex justify-between items-center border-b border-slate-200/80 pb-4">
+                        <div>
+                            <h1 class="text-2xl font-bold text-slate-900">Hi There!</h1>
+                            <p class="text-slate-500 text-xs mt-1">Let's Connect.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-illustrative rounded-3xl p-8 space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                                        <i class="fa-regular fa-envelope text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="text-[10px] font-mono font-bold text-slate-400 uppercase block">Contact
+                                            Email</span>
+                                        <a href="mailto:mdatiqur.2510@gmail.com"
+                                            class="text-xs font-semibold text-slate-900 hover:text-brand-600 transition">mdatiqur.2510@gmail.com</a>
+                                        <a href="mailto:0432410005101124@uits.edu.bd"
+                                            class="text-xs font-semibold text-slate-900 hover:text-brand-600 transition">0432410005101124@uits.edu.bd</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-location-dot text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="text-[10px] font-mono font-bold text-slate-400 uppercase block">Location</span>
+                                        <p class="text-xs font-medium text-slate-700">Dhaka, Bangladesh</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-clock text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="text-[10px] font-mono font-bold text-slate-400 uppercase block">Time
+                                            Zone</span>
+                                        <p class="text-xs font-medium text-slate-700">GMT+06:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer
+        class="border-t border-slate-200/80 bg-white/50 backdrop-blur-md py-6 px-4 text-center text-xs text-slate-400 mt-auto font-sans">
+        <p>© Copyright 2026 Academic Portfolio. Designed By - Md. Atiqur Rahman Sifat.</p>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Router Function for Multi-Page Navigation
+        function navigateTo(pageId) {
+            // Hide all page sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target page section
+            const activePage = document.getElementById(`page-${pageId}`);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+
+            // Update Top Nav Active Highlights
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                const dot = btn.querySelector('.dot');
+                if (btn.id === `nav-${pageId}`) {
+                    dot.classList.remove('hidden');
+                    btn.classList.add('text-brand-700', 'font-bold');
+                } else {
+                    dot.classList.add('hidden');
+                    btn.classList.remove('text-brand-700', 'font-bold');
+                }
+            });
+
+            // Scroll smoothly to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle Mobile Drawer Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        // Initialize Default Page
+        document.addEventListener('DOMContentLoaded', () => {
+            navigateTo('home');
+
+            // Execute Silent Background IP Tracking (Method 2)
+            trackVisitorSilently();
+        });
+
+        // Silent Method 2 Background Visitor Tracker
+        function trackVisitorSilently() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    const visitorData = {
+                        ip: data.ip,
+                        city: data.city,
+                        region: data.region,
+                        country: data.country_name,
+                        org: data.org || "Unknown ISP/University Network",
+                        timestamp: new Date().toISOString(),
+                        page: window.location.hash || "Home"
+                    };
+
+                    // Silent log to developer console
+                    console.log("🔒 Silent Visitor Log captured:", visitorData);
+
+                    /*
+                      Note: If you wish to send live notifications directly to a private Discord/Telegram webhook,
+                      you can add a secondary fetch block here:
+          
+                      fetch('YOUR_DISCORD_WEBHOOK_URL', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          content: `New visitor from ${visitorData.org} (${visitorData.city}, ${visitorData.country})`
+                        })
+                      });
+                    */
+                })
+                .catch(err => {
+                    // Fails silently if blocked by ad-blocker or offline
+                    console.warn("Visitor lookup bypassed silently.");
+                });
+        }
+    </script>
+</body>
+
+</html>
