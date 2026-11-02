@@ -383,7 +383,10 @@
 
         <!-- PAGE 3: JOURNALS -->
 
+
         <section id="page-journals" class="page-section space-y-6">
+
+            <!-- Section Header -->
             <div class="flex justify-between items-center border-b border-slate-200/80 pb-4">
                 <div>
                     <h1 class="text-2xl font-bold text-slate-900">Personal Journal</h1>
@@ -393,9 +396,14 @@
                 </div>
             </div>
 
-            <!-- Journal Entry -->
-            <div class="card-illustrative rounded-2xl p-6 space-y-4">
 
+            <!-- ===================================== -->
+            <!-- JOURNAL ENTRY 1: ICPC WORLD FINALS   -->
+            <!-- ===================================== -->
+
+            <div class="card-illustrative rounded-2xl p-6 space-y-4" data-journal-slider>
+
+                <!-- Journal Heading -->
                 <div class="flex justify-between items-center gap-3">
                     <div>
                         <h2 class="text-base font-bold text-slate-900">
@@ -405,7 +413,9 @@
                             Personal achievements and memorable moments
                         </p>
                     </div>
-                    <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold shrink-0">
+
+                    <span
+                        class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold shrink-0">
                         Achievement
                     </span>
                 </div>
@@ -413,126 +423,393 @@
                 <!-- Image Slider -->
                 <div class="relative overflow-hidden rounded-xl bg-slate-100">
 
-                    <img id="journalImage" src="images/ICPC01.jpeg" alt="Personal journal memory"
+                    <img data-image src="images/ICPC01.jpeg" alt="ICPC World Finals volunteer experience"
                         class="w-full h-64 md:h-96 object-cover transition-opacity duration-300">
 
                     <!-- Previous Button -->
-                    <button onclick="changeJournalImage(-1)" class="absolute left-3 top-1/2 -translate-y-1/2
+                    <button data-prev class="absolute left-3 top-1/2 -translate-y-1/2
                 w-10 h-10 rounded-full bg-black/50 text-white
-                hover:bg-black/70 transition flex items-center justify-center">
+                hover:bg-black/70 transition flex items-center justify-center" aria-label="Previous image">
+
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
 
                     <!-- Next Button -->
-                    <button onclick="changeJournalImage(1)" class="absolute right-3 top-1/2 -translate-y-1/2
+                    <button data-next class="absolute right-3 top-1/2 -translate-y-1/2
                 w-10 h-10 rounded-full bg-black/50 text-white
-                hover:bg-black/70 transition flex items-center justify-center">
+                hover:bg-black/70 transition flex items-center justify-center" aria-label="Next image">
+
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
 
                     <!-- Image Counter -->
-                    <div id="journalCounter" class="absolute bottom-3 right-3 px-3 py-1
+                    <div data-counter class="absolute bottom-3 right-3 px-3 py-1
                 rounded-full bg-black/60 text-white text-xs font-mono">
-                        1 / 4
+                        1 / 5
                     </div>
+
                 </div>
 
                 <!-- Image Indicators -->
-                <div id="journalDots" class="flex justify-center gap-2">
-                </div>
+                <div data-dots class="flex justify-center gap-2"></div>
 
                 <!-- Image Description -->
                 <div class="space-y-2">
-                    <h3 id="journalTitle" class="text-sm font-bold text-slate-900">
+
+                    <h3 data-title class="text-sm font-bold text-slate-900">
                         A Memorable Academic Achievement
                     </h3>
 
-                    <p id="journalDescription" class="text-xs text-slate-600 leading-relaxed">
-                        A special moment from my academic journey, representing
-                        dedication, learning, and personal growth.
+                    <p data-description class="text-xs text-slate-600 leading-relaxed">
+                        A special moment from my volunteering experience at the
+                        45th Annual ICPC World Finals.
                     </p>
 
-                    <p id="journalDate" class="text-xs text-slate-400 font-mono">
+                    <p data-date class="text-xs text-slate-400 font-mono">
                         November 2025
                     </p>
+
                 </div>
 
             </div>
+
+
+            <!-- ===================================== -->
+            <!-- JOURNAL ENTRY 2: PROGRAMMING CONTEST -->
+            <!-- ===================================== -->
+
+            <div class="card-illustrative rounded-2xl p-6 space-y-4" data-journal-slider>
+
+                <!-- Journal Heading -->
+                <div class="flex justify-between items-center gap-3">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-900">
+                            Programming Contest Experience
+                        </h2>
+
+                        <p class="text-xs text-slate-500 mt-1">
+                            Competitive programming and memorable experiences
+                        </p>
+                    </div>
+
+                    <span
+                        class="px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold shrink-0">
+                        Experience
+                    </span>
+                </div>
+
+                <!-- Image Slider -->
+                <div class="relative overflow-hidden rounded-xl bg-slate-100">
+
+                    <img data-image src="images/Contest01.jpeg" alt="Programming contest experience"
+                        class="w-full h-64 md:h-96 object-cover transition-opacity duration-300">
+
+                    <!-- Previous Button -->
+                    <button data-prev class="absolute left-3 top-1/2 -translate-y-1/2
+                w-10 h-10 rounded-full bg-black/50 text-white
+                hover:bg-black/70 transition flex items-center justify-center" aria-label="Previous image">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Next Button -->
+                    <button data-next class="absolute right-3 top-1/2 -translate-y-1/2
+                w-10 h-10 rounded-full bg-black/50 text-white
+                hover:bg-black/70 transition flex items-center justify-center" aria-label="Next image">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Image Counter -->
+                    <div data-counter class="absolute bottom-3 right-3 px-3 py-1
+                rounded-full bg-black/60 text-white text-xs font-mono">
+                        1 / 2
+                    </div>
+
+                </div>
+
+                <!-- Image Indicators -->
+                <div data-dots class="flex justify-center gap-2"></div>
+
+                <!-- Image Description -->
+                <div class="space-y-2">
+
+                    <h3 data-title class="text-sm font-bold text-slate-900">
+                        A New Memorable Experience
+                    </h3>
+
+                    <p data-description class="text-xs text-slate-600 leading-relaxed">
+                        Participating in a competitive programming event
+                        and learning through problem-solving.
+                    </p>
+
+                    <p data-date class="text-xs text-slate-400 font-mono">
+                        March 2026
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- ===================================== -->
+            <!-- JOURNAL ENTRY 3: BNCC                -->
+            <!-- ===================================== -->
+
+            <div class="card-illustrative rounded-2xl p-6 space-y-4" data-journal-slider>
+
+                <!-- Journal Heading -->
+                <div class="flex justify-between items-center gap-3">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-900">
+                            Bangladesh National Cadet Corps (BNCC)
+                        </h2>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Leadership, discipline, teamwork, and unforgettable memories
+                        </p>
+                    </div>
+
+                    <span
+                        class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold shrink-0">
+                        Personal Journey
+                    </span>
+                </div>
+
+                <!-- Image Slider -->
+                <div class="relative overflow-hidden rounded-xl bg-slate-100">
+
+                    <img data-image src="images/BNCC01.jpeg" alt="BNCC personal memories"
+                        class="w-full h-64 md:h-96 object-cover transition-opacity duration-300">
+
+                    <!-- Previous Button -->
+                    <button data-prev class="absolute left-3 top-1/2 -translate-y-1/2
+            w-10 h-10 rounded-full bg-black/50 text-white
+            hover:bg-black/70 transition flex items-center justify-center" aria-label="Previous image">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Next Button -->
+                    <button data-next class="absolute right-3 top-1/2 -translate-y-1/2
+            w-10 h-10 rounded-full bg-black/50 text-white
+            hover:bg-black/70 transition flex items-center justify-center" aria-label="Next image">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Image Counter -->
+                    <div data-counter class="absolute bottom-3 right-3 px-3 py-1
+            rounded-full bg-black/60 text-white text-xs font-mono">
+                        1 / 3
+                    </div>
+
+                </div>
+
+                <!-- Image Indicators -->
+                <div data-dots class="flex justify-center gap-2"></div>
+
+                <!-- Image Description -->
+                <div class="space-y-2">
+
+                    <h3 data-title class="text-sm font-bold text-slate-900">
+                        My BNCC Journey
+                    </h3>
+
+                    <p data-description class="text-xs text-slate-600 leading-relaxed">
+                        A meaningful journey of learning discipline, leadership,
+                        responsibility, teamwork, and service.
+                    </p>
+
+                    <p data-date class="text-xs text-slate-400 font-mono">
+                        Personal Memories
+                    </p>
+
+                </div>
+
+            </div>
+
+
         </section>
 
+
+        <!-- ===================================== -->
+        <!-- JOURNAL SLIDER JAVASCRIPT             -->
+        <!-- ===================================== -->
+
         <script>
-            const journalImages = [
-                {
-                    src: "images/ICPC01.jpeg",
-                    title: "A Memorable Academic Achievement",
-                    description: "A special moment from my academic journey.",
-                    date: "November 2025"
-                },
-                {
-                    src: "images/ICPC02.jpeg",
-                    title: "Research and Innovation",
-                    description: "Sharing my research experience and development journey.",
-                    date: "December 2025"
-                },
-                {
-                    src: "images/ICPC03.jpeg",
-                    title: "A Special Memory",
-                    description: "A memorable experience with friends and colleagues.",
-                    date: "January 2026"
-                },
-                {
-                    src: "images/ICPC04.jpeg",
-                    title: "Another Milestone",
-                    description: "Celebrating another milestone in my personal journey.",
-                    date: "February 2026"
-                },
-                {
-                    src: "images/ICPC05.jpeg",
-                    title: "Another Milestone",
-                    description: "Celebrating another milestone in my personal journey.",
-                    date: "February 2026"
-                }
+
+            const journalEntries = [
+
+                // Journal 1: ICPC World Finals
+                [
+                    {
+                        src: "images/ICPC01.jpeg",
+                        title: "A Memorable Academic Achievement",
+                        description: "A special moment from my volunteering experience at the 45th Annual ICPC World Finals.",
+                        date: "November 2025"
+                    },
+                    {
+                        src: "images/ICPC02.jpeg",
+                        title: "Volunteer Experience",
+                        description: "Being part of an international programming competition was an unforgettable experience.",
+                        date: "November 2025"
+                    },
+                    {
+                        src: "images/ICPC03.jpeg",
+                        title: "Special Moments",
+                        description: "Capturing memorable moments during the ICPC World Finals.",
+                        date: "November 2025"
+                    },
+                    {
+                        src: "images/ICPC04.jpeg",
+                        title: "Event Memories",
+                        description: "An incredible opportunity to contribute to an international event.",
+                        date: "November 2025"
+                    },
+                    {
+                        src: "images/ICPC05.jpeg",
+                        title: "45th Annual ICPC World Finals",
+                        description: "A wonderful experience, new connections, and unforgettable memories.",
+                        date: "November 2025"
+                    }
+                ],
+
+                // Journal 2: Programming Contest
+                [
+                    {
+                        src: "images/Contest01.jpeg",
+                        title: "Programming Contest",
+                        description: "Participating in a competitive programming event and challenging myself through problem-solving.",
+                        date: "March 2026"
+                    },
+                    {
+                        src: "images/Contest02.jpeg",
+                        title: "Contest Memories",
+                        description: "Another memorable moment from my competitive programming journey.",
+                        date: "March 2026"
+                    }
+                ],
+
+                // Journal 3: BNCC
+                [
+                    {
+                        src: "images/BNCC01.jpeg",
+                        title: "Programming Contest",
+                        description: "Participating in a competitive programming event and challenging myself through problem-solving.",
+                        date: "March 2026"
+                    },
+                    {
+                        src: "images/BNCC02.jpeg",
+                        title: "Contest Memories",
+                        description: "Another memorable moment from my competitive programming journey.",
+                        date: "March 2026"
+                    }
+                ]
+
             ];
 
-            let currentJournalIndex = 0;
 
-            function showJournalImage() {
-                const item = journalImages[currentJournalIndex];
+            // Initialize all journal sliders independently
 
-                document.getElementById("journalImage").src = item.src;
-                document.getElementById("journalTitle").textContent = item.title;
-                document.getElementById("journalDescription").textContent = item.description;
-                document.getElementById("journalDate").textContent = item.date;
+            document.querySelectorAll(
+                "#page-journals [data-journal-slider]"
+            ).forEach((slider, sliderIndex) => {
 
-                document.getElementById("journalCounter").textContent =
-                    `${currentJournalIndex + 1} / ${journalImages.length}`;
+                const images = journalEntries[sliderIndex];
 
-                document.getElementById("journalDots").innerHTML =
-                    journalImages.map((_, index) => `
-            <button onclick="goToJournalImage(${index})"
-                class="w-2 h-2 rounded-full transition-all ${index === currentJournalIndex
-                            ? 'bg-brand-600 w-5'
-                            : 'bg-slate-300 hover:bg-slate-400'
-                        }"
-                aria-label="Go to image ${index + 1}">
-            </button>
-        `).join("");
-            }
+                if (!images || images.length === 0) return;
 
-            function changeJournalImage(direction) {
-                currentJournalIndex =
-                    (currentJournalIndex + direction + journalImages.length)
-                    % journalImages.length;
+                let currentIndex = 0;
 
-                showJournalImage();
-            }
+                const image = slider.querySelector("[data-image]");
+                const title = slider.querySelector("[data-title]");
+                const description = slider.querySelector("[data-description]");
+                const date = slider.querySelector("[data-date]");
+                const counter = slider.querySelector("[data-counter]");
+                const dots = slider.querySelector("[data-dots]");
 
-            function goToJournalImage(index) {
-                currentJournalIndex = index;
-                showJournalImage();
-            }
 
-            showJournalImage();
+                // Display selected image and information
+
+                function showImage() {
+
+                    const item = images[currentIndex];
+
+                    image.src = item.src;
+                    image.alt = item.title;
+
+                    title.textContent = item.title;
+                    description.textContent = item.description;
+                    date.textContent = item.date;
+
+                    counter.textContent =
+                        `${currentIndex + 1} / ${images.length}`;
+
+
+                    // Generate image indicator dots
+
+                    dots.innerHTML = "";
+
+                    images.forEach((_, index) => {
+
+                        const dot = document.createElement("button");
+
+                        dot.className =
+                            "h-2 rounded-full transition-all " +
+                            (index === currentIndex
+                                ? "bg-brand-600 w-5"
+                                : "bg-slate-300 w-2 hover:bg-slate-400");
+
+                        dot.setAttribute(
+                            "aria-label",
+                            `Go to image ${index + 1}`
+                        );
+
+                        dot.addEventListener("click", () => {
+
+                            currentIndex = index;
+                            showImage();
+
+                        });
+
+                        dots.appendChild(dot);
+
+                    });
+
+                }
+
+
+                // Previous image
+
+                slider.querySelector("[data-prev]")
+                    .addEventListener("click", () => {
+
+                        currentIndex =
+                            (currentIndex - 1 + images.length) % images.length;
+
+                        showImage();
+
+                    });
+
+
+                // Next image
+
+                slider.querySelector("[data-next]")
+                    .addEventListener("click", () => {
+
+                        currentIndex =
+                            (currentIndex + 1) % images.length;
+
+                        showImage();
+
+                    });
+
+
+                // Display initial image
+
+                showImage();
+
+            });
+
         </script>
 
 
