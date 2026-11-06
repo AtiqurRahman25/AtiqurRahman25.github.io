@@ -80,7 +80,6 @@ function toggleMobileMenu() {
 
 }
 
-
 /* Close mobile menu */
 
 function closeMobileMenu() {
@@ -105,7 +104,6 @@ function closeMobileMenu() {
 
 }
 
-
 /* =====================================================
    3. JOURNAL SLIDER DATA
 ===================================================== */
@@ -115,21 +113,103 @@ const journalEntries = [
     // Journal 1: Thesis
     [
         {
-            src: "images/THESIS01.jpeg",
-            title: "Undergraduate Thesis",
-            description: "A memorable part of my undergraduate research journey.",
+            src: "images/THESIS02.jpeg",
+            title: "Undergraduate ThesisOur Group with supervisor Dr. Shekh Adbullah-Al-Musa Ahmed.",
+            description: "Showcase day of our EEW System.",
             date: "2026"
         },
 
         {
-            src: "images/THESIS02.jpeg",
-            title: "Research and Development",
-            description: "Documenting my thesis research experience.",
+            src: "images/THESIS01.jpeg",
+            title: "Undergraduate Thesis",
+            description: "A memorable part of my undergraduate journey.",
             date: "2026"
         }
     ],
 
-    // Journal 2: ICPC World Finals
+    // Journal 2: Graduation T-shirt
+    [
+        {
+            src: "images/GRADTSHIRT.png",
+            title: "Graduation Memories",
+            description: "A special keepsake celebrating an important academic milestone.",
+            date: "2026"
+        }
+    ],
+
+    // Journal 3: Japanese Friend
+    [
+        {
+            src: "images/JAPAN01.jpeg",
+            title: "International Friendship",
+            description: "A memorable moment and a wonderful opportunity to connect with international friends.",
+            date: "March 2026"
+        },
+
+        {
+            src: "images/JAPAN02.jpeg",
+            title: "Cultural Exchange",
+            description: "Sharing experiences and building international connections.",
+            date: "March 2026"
+        },
+
+        {
+            src: "images/JAPAN03.jpeg",
+            title: "Friendship Memories",
+            description: "Another special moment from an unforgettable experience.",
+            date: "March 2026"
+        }
+    ],
+
+    // Journal 4: Poster Presentation
+    [
+        {
+            src: "images/POSTER01.jpeg",
+            title: "Research Poster Presentation",
+            description: "Presenting research work and sharing academic ideas.",
+            date: "March 2026"
+        },
+
+        {
+            src: "images/POSTER02.jpeg",
+            title: "Poster Preparation",
+            description: "Preparing and presenting research materials.",
+            date: "March 2026"
+        },
+
+        {
+            src: "images/POSTER03.jpeg",
+            title: "Academic Research Experience",
+            description: "Another memorable moment from my research presentation experience.",
+            date: "March 2026"
+        }
+    ],
+
+    // Journal 5: UIHP
+    [
+        {
+            src: "images/UIHP01.jpeg",
+            title: "University Innovation Hub Program",
+            description: "A memorable experience from the University Innovation Hub Program.",
+            date: "March 2026"
+        },
+
+        {
+            src: "images/UIHP02.jpeg",
+            title: "Innovation and Collaboration",
+            description: "Learning, collaboration, and innovation through UIHP.",
+            date: "March 2026"
+        },
+
+        {
+            src: "images/UIHP03.jpeg",
+            title: "UIHP Memories",
+            description: "Capturing another memorable moment from the program.",
+            date: "March 2026"
+        }
+    ],
+
+    // Journal 4: ICPC World Finals
     [
         {
             src: "images/ICPC01.jpeg",
@@ -167,7 +247,6 @@ const journalEntries = [
         }
     ],
 
-
     // Journal 2: Programming Contest
     [
         {
@@ -185,7 +264,6 @@ const journalEntries = [
         }
     ],
 
-
     // Journal 3: BNCC
     [
         {
@@ -200,92 +278,6 @@ const journalEntries = [
             title: "BNCC Memories",
             description: "Memorable moments from my journey with the Bangladesh National Cadet Corps.",
             date: "Personal Memories"
-        }
-    ],
-
-
-    // Journal 4: UIHP
-    [
-        {
-            src: "images/UIHP01.jpeg",
-            title: "University Innovation Hub Program",
-            description: "A memorable experience from the University Innovation Hub Program.",
-            date: "March 2026"
-        },
-
-        {
-            src: "images/UIHP02.jpeg",
-            title: "Innovation and Collaboration",
-            description: "Learning, collaboration, and innovation through UIHP.",
-            date: "March 2026"
-        },
-
-        {
-            src: "images/UIHP03.jpeg",
-            title: "UIHP Memories",
-            description: "Capturing another memorable moment from the program.",
-            date: "March 2026"
-        }
-    ],
-
-
-    // Journal 5: Poster Presentation
-    [
-        {
-            src: "images/POSTER01.jpeg",
-            title: "Research Poster Presentation",
-            description: "Presenting research work and sharing academic ideas.",
-            date: "March 2026"
-        },
-
-        {
-            src: "images/POSTER02.jpeg",
-            title: "Poster Preparation",
-            description: "Preparing and presenting research materials.",
-            date: "March 2026"
-        },
-
-        {
-            src: "images/POSTER03.jpeg",
-            title: "Academic Research Experience",
-            description: "Another memorable moment from my research presentation experience.",
-            date: "March 2026"
-        }
-    ],
-
-
-    // Journal 6: Japanese Friend
-    [
-        {
-            src: "images/JAPAN01.jpeg",
-            title: "International Friendship",
-            description: "A memorable moment and a wonderful opportunity to connect with international friends.",
-            date: "March 2026"
-        },
-
-        {
-            src: "images/JAPAN02.jpeg",
-            title: "Cultural Exchange",
-            description: "Sharing experiences and building international connections.",
-            date: "March 2026"
-        },
-
-        {
-            src: "images/JAPAN03.jpeg",
-            title: "Friendship Memories",
-            description: "Another special moment from an unforgettable experience.",
-            date: "March 2026"
-        }
-    ],
-
-
-    // Journal 7: Graduation T-shirt
-    [
-        {
-            src: "images/GRADTSHIRT.png",
-            title: "Graduation Memories",
-            description: "A special keepsake celebrating an important academic milestone.",
-            date: "2026"
         }
     ]
 

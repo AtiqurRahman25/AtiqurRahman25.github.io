@@ -1,8 +1,23 @@
+/* =====================================================
+   MAIN JAVASCRIPT - ACADEMIC PORTFOLIO
+===================================================== */
+
 // Toggle Mobile Drawer Menu
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-    menu.classList.toggle('flex');
+    if (!menu) return; // Prevents errors on pages that don't have a mobile menu
+
+    const isHidden = menu.classList.contains('hidden');
+
+    // Toggle menu visibility explicitly
+    menu.classList.toggle('hidden', !isHidden);
+    menu.classList.toggle('flex', isHidden);
+
+    // Update accessibility state if a menu button exists
+    const menuButton = document.getElementById('mobile-menu-btn');
+    if (menuButton) {
+        menuButton.setAttribute('aria-expanded', String(isHidden));
+    }
 }
 
 // Silent Background Visitor Tracker
@@ -42,4 +57,7 @@ function trackVisitorSilently() {
         });
 }
 
-document.addEventListener('DOMContentLoaded', trackVisitorSilently);
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+    trackVisitorSilently();
+});
