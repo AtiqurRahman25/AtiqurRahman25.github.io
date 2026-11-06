@@ -112,7 +112,24 @@ function closeMobileMenu() {
 
 const journalEntries = [
 
-    // Journal 1: ICPC World Finals
+    // Journal 1: Thesis
+    [
+        {
+            src: "images/THESIS01.jpeg",
+            title: "Undergraduate Thesis",
+            description: "A memorable part of my undergraduate research journey.",
+            date: "2026"
+        },
+
+        {
+            src: "images/THESIS02.jpeg",
+            title: "Research and Development",
+            description: "Documenting my thesis research experience.",
+            date: "2026"
+        }
+    ],
+
+    // Journal 2: ICPC World Finals
     [
         {
             src: "images/ICPC01.jpeg",
@@ -268,24 +285,6 @@ const journalEntries = [
             src: "images/GRADTSHIRT.png",
             title: "Graduation Memories",
             description: "A special keepsake celebrating an important academic milestone.",
-            date: "2026"
-        }
-    ],
-
-
-    // Journal 8: Thesis
-    [
-        {
-            src: "images/THESIS01.jpeg",
-            title: "Undergraduate Thesis",
-            description: "A memorable part of my undergraduate research journey.",
-            date: "2026"
-        },
-
-        {
-            src: "images/THESIS02.jpeg",
-            title: "Research and Development",
-            description: "Documenting my thesis research experience.",
             date: "2026"
         }
     ]
